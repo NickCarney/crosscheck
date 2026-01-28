@@ -390,6 +390,112 @@ function WhyChooseSection() {
   );
 }
 
+function ContactSection() {
+  return (
+    <section className="bg-gradient-to-br from-[#1e3a5f] to-[#2d5080] py-20 px-4 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left side - Contact info */}
+          <div className="text-white">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Let&apos;s Work Together
+            </h2>
+            <p className="text-xl text-white/90 leading-relaxed mb-8">
+              Ready to find exceptional talent or take the next step in your career?
+              We&apos;re here to help.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <span className="text-lg">Quick Response Time</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <span className="text-lg">Personalized Solutions</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Contact form */}
+          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
+            <form className="space-y-6">
+              {/* Name fields */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all"
+                    placeholder="John"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all"
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+
+              {/* Email field */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  required
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all"
+                  placeholder="john.doe@example.com"
+                />
+              </div>
+
+              {/* Message field */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all resize-none"
+                  placeholder="Tell us about your needs..."
+                ></textarea>
+              </div>
+
+              {/* Submit button */}
+              <div>
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#8b2346] to-[#a52d56] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function EssentialResourcesSection() {
   return (
     <section className="bg-[#e8e8e8] py-16 px-4 md:px-8">
@@ -529,6 +635,7 @@ export default function Home() {
       <HeroSection />
       <WhyChooseSection />
       <EssentialResourcesSection />
+      <ContactSection />
     </div>
   );
 }
