@@ -125,29 +125,16 @@ function ContactSection() {
             </p>
 
             {/* Contact information */}
-            <div className="mb-8 space-y-4">
-              <div>
-                <p className="font-semibold text-gray-900">Bennett Heimple</p>
-                <a
-                  href="mailto:Bheimple@crosscheckstaffing.com"
-                  className="text-[#1e3a5f] hover:underline"
-                >
-                  Bheimple@crosscheckstaffing.com
-                </a>
-                <br />
-                <span className="text-gray-700">(719) 205-9410</span>
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900">Drake Olson</p>
-                <a
-                  href="mailto:Dolson@crosscheckstaffing.com"
-                  className="text-[#1e3a5f] hover:underline"
-                >
-                  Dolson@crosscheckstaffing.com
-                </a>
-                <br />
-                <span className="text-gray-700">(720) 635-4186</span>
-              </div>
+            <div className="mb-8">
+              <p className="font-semibold text-gray-900">Drake Olson</p>
+              <a
+                href="mailto:Dolson@crosscheckstaffing.com"
+                className="text-[#1e3a5f] hover:underline"
+              >
+                Dolson@crosscheckstaffing.com
+              </a>
+              <br />
+              <span className="text-gray-700">(720) 635-4186</span>
             </div>
 
             {/* Contact form */}
@@ -265,33 +252,18 @@ function Footer() {
           {/* Right - Contact */}
           <div>
             <h4 className="text-xl font-bold text-gray-900 mb-4">Contact</h4>
-            <div className="space-y-4">
-              <div className="text-gray-700">
-                <p className="font-semibold">Bennett Heimple</p>
-                <a
-                  href="mailto:Bheimple@crosscheckstaffing.com"
-                  className="text-[#8b2346] hover:underline"
-                >
-                  Bheimple@crosscheckstaffing.com
-                </a>
-                <br />
-                <a href="tel:+17192059410" className="text-gray-700">
-                  (719) 205-9410
-                </a>
-              </div>
-              <div className="text-gray-700">
-                <p className="font-semibold">Drake Olson</p>
-                <a
-                  href="mailto:Dolson@crosscheckstaffing.com"
-                  className="text-[#8b2346] hover:underline"
-                >
-                  Dolson@crosscheckstaffing.com
-                </a>
-                <br />
-                <a href="tel:+17206354186" className="text-gray-700">
-                  (720) 635-4186
-                </a>
-              </div>
+            <div className="text-gray-700">
+              <p className="font-semibold">Drake Olson</p>
+              <a
+                href="mailto:Dolson@crosscheckstaffing.com"
+                className="text-[#8b2346] hover:underline"
+              >
+                Dolson@crosscheckstaffing.com
+              </a>
+              <br />
+              <a href="tel:+17206354186" className="text-gray-700">
+                (720) 635-4186
+              </a>
             </div>
           </div>
         </div>
