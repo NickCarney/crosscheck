@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, FormEvent } from "react";
-import { useContactForm } from "./hooks/useContactForm";
-import { Navigation, AnnouncementBanner } from "./components/Navigation";
+import React, { useState } from "react";
+import { Navigation, AnnouncementBanner, Footer, ContactForm } from "./components";
 
 function GeometricBackground() {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
@@ -285,98 +284,7 @@ function WhyChooseSection() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="bg-[#e8e8e8] py-12 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Left - Logo and Privacy Policy */}
-          <div>
-            <h3 className="text-3xl font-bold mb-6">
-              <span className="text-[#8b2346]">Crosscheck</span>{" "}
-              <span className="text-[#1e3a5f]">Staffing</span>
-            </h3>
-            <a
-              href="/privacy-policy"
-              className="text-[#1e3a5f] underline hover:text-[#8b2346] transition-colors"
-            >
-              Privacy Policy
-            </a>
-          </div>
-
-          {/* Middle - Location */}
-          <div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4">Location</h4>
-            <address className="not-italic text-gray-700 leading-relaxed">
-              1100 Johnson Rd. #16061
-              <br />
-              Golden, CO 80402
-            </address>
-          </div>
-
-          {/* Right - Contact */}
-          <div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4">Contact</h4>
-            <div className="text-gray-700">
-              <p className="font-semibold">Drake Olson</p>
-              <a
-                href="mailto:Dolson@crosscheckstaffing.com"
-                className="text-[#1e3a5f] hover:underline"
-              >
-                Dolson@crosscheckstaffing.com
-              </a>
-              <br />
-              <a
-                href="tel:+17206354186"
-                className="text-[#1e3a5f] hover:underline"
-              >
-                (720) 635-4186
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 function ContactSection() {
-  const { submitForm, isSubmitting, isSuccess, error, reset } =
-    useContactForm();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const result = await submitForm({
-      ...formData,
-      formType: "homepage",
-    });
-
-    if (result.success) {
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        message: "",
-      });
-      setTimeout(reset, 5000);
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
   return (
     <section className="bg-gradient-to-br from-[#1e3a5f] to-[#2d5080] py-20 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
@@ -434,99 +342,12 @@ function ContactSection() {
 
           {/* Right side - Contact form */}
           <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
-            {isSuccess && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-green-800 font-medium">
-                  Thank you! We&apos;ll be in touch soon.
-                </p>
-              </div>
-            )}
-            {error && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-red-800 font-medium">{error}</p>
-              </div>
-            )}
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              {/* Name fields */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    required
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all disabled:opacity-50"
-                    placeholder="John"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    required
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all disabled:opacity-50"
-                    placeholder="Doe"
-                  />
-                </div>
-              </div>
-
-              {/* Email field */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all disabled:opacity-50"
-                  placeholder="john.doe@example.com"
-                />
-              </div>
-
-              {/* Message field */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent transition-all resize-none disabled:opacity-50"
-                  placeholder="Tell us about your needs..."
-                ></textarea>
-              </div>
-
-              {/* Submit button */}
-              <div>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-[#8b2346] to-[#a52d56] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
-              </div>
-            </form>
+            <ContactForm
+              formType="homepage"
+              buttonVariant="burgundy-gradient"
+              buttonText="Send Message"
+              successMessage="Thank you! We'll be in touch soon."
+            />
           </div>
         </div>
       </div>
